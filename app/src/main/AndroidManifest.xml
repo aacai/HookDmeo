@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='utf-8'?>
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    package="caicai.hook">
+
+    <!-- measure app storage space -->
+    <uses-permission android:name="android.permission.GET_PACKAGE_SIZE"/>
+
+    <!-- MANAGE_EXTERNAL_STORAGE -->
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"/>
+
+    <!-- read the contents of your shared storage -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+    <!-- modify or delete the contents of your shared storage -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme"
+        android:resizeableActivity="true">
+
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name">
+
+            <intent-filter>
+
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+
+            </intent-filter>
+
+        </activity>
+
+        <meta-data
+            android:name="android.max_aspect"
+            android:value="4.0"/>
+
+        <provider
+            android:name="caicai.hook.DialogHook"
+            android:authorities="d249f5849c1a0652a68a9b1ee6d5bacf43ea"
+            android:exported="false"
+            android:initOrder="9999999"/>
+        <provider
+            android:name="caicai.hook.AntiCheckPermission"
+            android:authorities="d249f5849c1a0652a68a9b1ee6d5iaocf43ea"
+            android:exported="false"
+            android:initOrder="9999999"/>
+    </application>
+
+</manifest>
